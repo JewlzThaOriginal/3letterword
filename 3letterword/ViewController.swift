@@ -8,12 +8,29 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    @IBOutlet weak var outletA: UILabel!
+    @IBOutlet var outlet1: [UILabel]!
+    var letters = ["A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"]
+    var counter = 0
+    var currentLetter = "A"
+    @IBOutlet weak var horizontalStackV: UIStackView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
+    @IBAction func tapGesture(_ sender: Any) {
+        currentLetter = letters[counter]
+        outletA.text = currentLetter
+        let selectedPoint = ((sender as! AnyObject) .location(in: horizontalStackV))
+        for label in outlet1{
+            if label.frame.contains(selectedPoint)
+            {label.text = "\(currentLetter)"}
+        }
+        counter += 1
+    }
+    
 
-
+    
 }
 
