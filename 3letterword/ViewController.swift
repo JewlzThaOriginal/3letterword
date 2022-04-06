@@ -28,9 +28,24 @@ class ViewController: UIViewController {
             {label.text = "\(currentLetter)"}
         }
         counter += 1
+            
+        if counter == 26{
+                
+                counter = resetCounter()
+        
     }
-    
+    func resetCounter() -> Int
+    {
+        let alert = UIAlertController(title: "resetting Counter", message: nil, preferredStyle:  .alert)
+        let okAction = UIAlertAction(title: "ok", style: .default)
+        
+        alert.addAction(okAction)
+        present(alert, animated: true, completion: nil)
+        return 0
+    }
 
     
 }
 
+
+}
